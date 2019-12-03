@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.health.dao.MemberDao">
+
+    <!--使用手机号，查询会员-->
+    <select id="findMemberByTelephone" parameterType="string" resultType="member">
+        SELECT * FROM t_member WHERE phoneNumber = #{telephone}
+    </select>
+    
+    <!--新增会员，返回会员id-->
+    <insert id="add" parameterType="member">
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into t_member(fileNumber,name,sex,idCard,phoneNumber,regTime,password,email,birthday,remark) values(#{fileNumber},#{name},#{sex},#{idCard},#{phoneNumber},#{regTime},#{password},#{email},#{birthday},#{remark})
+    </insert>
+
+    <!--使用会员注册时间，计算当前时间之前会员注册的数量
+        在xml中的特殊字符需要转义
+                <         &lt;
+                >         &gt;
+                &         &amp;
+    -->
+    <select id="findMemberCountByRegTime" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM t_member WHERE regTime &lt;= #{regTime}
+    </select>
+
+
+    <!--今天新增会员数-->
+    <select id="findTodayNewMember" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM t_member WHERE regTime = #{today}
+    </select>
+
+    <!--总会员数-->
+    <select id="findTotalMember" resultType="int">
+        SELECT COUNT(*) FROM t_member
+    </select>
+
+    <!--本周新增会员数，本月新增会员数-->
+    <select id="findThisNewMember" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM t_member WHERE regTime &gt;= #{date}
+    </select>
+</mapper>

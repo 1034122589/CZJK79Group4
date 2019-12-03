@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.health.dao.SetmealDao">
+
+    <!--新增套餐-->
+    <insert id="add" parameterType="setmeal">
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+           select last_insert_id()
+        </selectKey>
+        insert into t_setmeal(name,code,helpCode,sex,age,price,remark,attention,img) values(#{name},#{code},#{helpCode},#{sex},#{age},#{price},#{remark},#{attention},#{img})
+    </insert>
+
+    <!--新增套餐和检查组的中间表-->
+    <insert id="addSetmealAndCheckGroup" parameterType="map">
+        insert into t_setmeal_checkgroup(setmeal_id,checkgroup_id) values(#{setmealId},#{checkgroupId})
+    </insert>
+
+    <!--分页查询-->
+    <select id="findPage" parameterType="string" resultType="setmeal">
+        select * from t_setmeal
+        <if test="value!=null and value.length>0">
+            where name like concat('%',#{value},'%') or code = #{value} or helpCode = #{value}
+        </if>
+    </select>
+
+    <!--查询所有-->
+    <select id="findAll" resultType="setmeal">
+        select * from t_setmeal
+    </select>
+
+    <!--ID查询-->
+    <resultMap id="setmealMap" type="setmeal">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="code" column="code"></result>
+        <result property="helpCode" column="helpCode"></result>
+        <result property="sex" column="sex"></result>
+        <result property="age" column="age"></result>
+        <result property="price" column="price"></result>
+        <result property="remark" column="remark"></result>
+        <result property="attention" column="attention"></result>
+        <result property="img" column="img"></result>
+        <!--集合封装
+            property="checkGroups"：封装的属性
+            column="id"：传递给另一个方法的参数，（通过另一个方法，将查询的结果封装到List<CheckGroup>），id表示传递id的值（套餐id）
+            select="com.itheima.health.dao.CheckGroupDao.findCheckGroupListBySetmealId"：指定查询的方法
+                    * 返回值：List<CheckGroup>
+                    * 参数：id指定套餐id
+                    * 方法名：findCheckGroupListBySetmealId
+        -->
+        <collection property="checkGroups" column="id" select="com.itheima.health.dao.CheckGroupDao.findCheckGroupListBySetmealId"></collection>
+    </resultMap>
+    <!--使用resultMap-->
+    <select id="findById" parameterType="int" resultMap="setmealMap">
+        select * from t_setmeal where id = #{id}
+    </select>
+
+    <!--不使用resultMap-->
+    <!--<select id="findById" parameterType="int" resultType="setmeal">-->
+        <!--select * from t_setmeal where id = #{id}-->
+    <!--</select>-->
+
+    <!--套餐预约占比的饼图数据-->
+    <select id="getSetmealReport" resultType="map">
+        SELECT s.name,COUNT(o.id) value FROM t_order o,t_setmeal s WHERE o.setmeal_id = s.id GROUP BY s.name
+    </select>
+</mapper>

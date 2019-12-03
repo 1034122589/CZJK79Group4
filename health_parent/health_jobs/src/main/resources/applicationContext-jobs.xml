@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd
+               http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd
+               http://www.springframework.org/schema/tx
+               http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--开启注解扫描，否则不能在ClearImgJobDemo中使用@Autowired-->
+    <!--<context:annotation-config></context:annotation-config>-->
+    <!--或者-->
+    <context:component-scan base-package="com.itheima.health"></context:component-scan>
+    <!--1：自定义Job-->
+    <bean id="jobDemo" class="com.itheima.health.job.ClearImgJobDemo"></bean>
+
+    <!--2：任务描述，创建任务调度细节类，告诉执行的类和执行的方法-->
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <!--任务类-->
+        <property name="targetObject" ref="jobDemo"></property>
+        <!--任务类中的方法-->
+        <property name="targetMethod" value="clearImg"></property>
+    </bean>
+
+    <!--3：定义触发器：什么时间执行任务描述-->
+    <bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="jobDetail"></property>
+        <!--触发器的表达式
+        -->
+        <property name="cronExpression" value="0 28 18 * * ?"></property>
+    </bean>
+
+    <!--4：使用调度工厂，执行任务调度-->
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="trigger"></ref> <!--执行多个触发器-->
+            </list>
+        </property>
+    </bean>
+</beans>

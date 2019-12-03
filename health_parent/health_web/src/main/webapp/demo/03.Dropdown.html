@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- import CSS -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<style>
+    .el-dropdown-link {
+        cursor: pointer;
+        color: #409EFF;
+    }
+    .el-icon-arrow-down {
+        font-size: 12px;
+    }
+</style>
+<body>
+    <div id="app">
+        <el-dropdown>
+              <span class="el-dropdown-link">
+                下拉菜单（hover）<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>退出系统</el-dropdown-item>
+                    <el-dropdown-item disabled>修改密码</el-dropdown-item>
+                    <el-dropdown-item divided>联系管理员</el-dropdown-item>
+                </el-dropdown-menu>
+        </el-dropdown>
+        <hr>
+        <el-dropdown trigger="click">
+              <span class="el-dropdown-link">
+                下拉菜单（click）<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退出系统</el-dropdown-item>
+                <el-dropdown-item disabled>修改密码</el-dropdown-item>
+                <el-dropdown-item divided>联系管理员</el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+        <hr>
+        <el-dropdown trigger="click" split-button>
+              <span class="el-dropdown-link">
+                下拉菜单（按钮）
+              </span>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>退出系统</el-dropdown-item>
+                <el-dropdown-item disabled>修改密码</el-dropdown-item>
+                <el-dropdown-item divided>联系管理员</el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+    </div>
+</body>
+</html>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+
+        }
+    })
+</script>
