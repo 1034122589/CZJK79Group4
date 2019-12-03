@@ -1,6 +1,8 @@
 package com.itheima.health.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.itheima.health.constant.RedisMessageConstant;
@@ -55,18 +57,72 @@ public class SetmealServiceImpl implements SetmealService {
         return new PageResult(page.getTotal(),page.getResult());
     }
 
+    /**
+     *
+     * 查找所有套餐列表
+     * @return
+     */
     @Override
-    public List<Setmeal> findAll() {
-        return setmealDao.findAll();
+    public String findAll() {
+        // 如果redis中没有套餐列表 则向redis中添加
+        if (getSetMealFromRedis()==null) {
+            List<Setmeal> setmealList = setmealDao.findAll();
+            addSetMealToRedis(setmealList);
+        }
+        return  getSetMealFromRedis();
     }
 
-    //  使用resultMap完成集合映射开发
+    /**
+     * 查询套餐详情
+     * @param id
+     * @return
+     */
     @Override
-    public Setmeal findById(Integer id) {
-        Setmeal setmeal = setmealDao.findById(id);
-        return setmeal;
+    public String findById(Integer id) {
+        if (getSetmealDetailFromRdis(id)==null) {
+            Setmeal setmeal = setmealDao.findById(id);
+            addSetMealDetailToRedis(setmeal);
+        }
+
+        return getSetmealDetailFromRdis(id);
     }
 
+    /**
+     * 从redis 中获取套餐详情
+     * @param id
+     * @return
+     */
+    public String getSetmealDetailFromRdis(Integer id){
+        return jedisPool.getResource().hget("setmealDetail","setMealDetail"+id);
+    }
+
+    /**
+     * 添加套餐详情到redis中
+     * @param setmeal
+     */
+    public  void addSetMealDetailToRedis(Setmeal setmeal){
+        String setMealStr = JSONArray.toJSONString(setmeal);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("setMealDetail"+setmeal.getId(),setMealStr);
+        jedisPool.getResource().hmset("setmealDetail",map);
+    }
+    /**
+     * 从redis 中获取套餐列表
+     * @return
+     */
+    public String getSetMealFromRedis(){
+        return jedisPool.getResource().get("Mobile_setmeal_list");
+    }
+
+    /**
+     * 向redis 存入套餐列表
+     * @param setmealList
+     */
+    public  void addSetMealToRedis(List<Setmeal> setmealList){
+        String setMealStr = JSON.toJSONString(setmealList);
+        jedisPool.getResource().set("Mobile_setmeal_list",setMealStr);
+
+    }
     @Override
     public List<Map> getSetmealReport() {
         return setmealDao.getSetmealReport();

@@ -41,7 +41,7 @@
                             </div>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item divided>
-                                    <span style="display:block;">修改密码</span>
+                                    <span style="display:block;" @click="updatePwd" >修改密码</span>
                                 </el-dropdown-item>
                                 <el-dropdown-item divided>
                                         <span style="display:block;">
@@ -84,116 +84,148 @@
 <script>
     new Vue({
         el: '#app',
-        data:{
-            username:"",
-            menuList:[
+        data: {
+            username: "",
+            menuList: [
                 {
                     "path": "1",
                     "title": "工作台",
-                    "icon":"fa-dashboard",
+                    "icon": "fa-dashboard",
                     "children": []
                 },
                 {
                     "path": "2",
                     "title": "会员管理",
-                    "icon":"fa-user-md",
+                    "icon": "fa-user-md",
                     "children": [
                         {
                             "path": "/2-1",
                             "title": "会员档案",
-                            "linkUrl":"member.html",
-                            "children":[]
+                            "linkUrl": "member.html",
+                            "children": []
                         },
                         {
                             "path": "/2-2",
                             "title": "体检上传",
-                            "children":[]
+                            "children": []
                         },
                         {
                             "path": "/2-3",
                             "title": "会员统计",
-                            "linkUrl":"all-item-list.html",
-                            "children":[]
+                            "linkUrl": "all-item-list.html",
+                            "children": []
                         },
                     ]
                 },
                 {
                     "path": "3",
                     "title": "预约管理",
-                    "icon":"fa-tty",
+                    "icon": "fa-tty",
                     "children": [
                         {
                             "path": "/3-1",
                             "title": "预约列表",
-                            "linkUrl":"ordersettinglist.html",
-                            "children":[]
+                            "linkUrl": "ordersettinglist.html",
+                            "children": []
                         },
                         {
                             "path": "/3-2",
                             "title": "预约设置",
-                            "linkUrl":"ordersetting.html",
-                            "children":[]
+                            "linkUrl": "ordersetting.html",
+                            "children": []
                         },
                         {
                             "path": "/3-3",
                             "title": "套餐管理",
-                            "linkUrl":"setmeal.html",
-                            "children":[]
+                            "linkUrl": "setmeal.html",
+                            "children": []
                         },
                         {
                             "path": "/3-4",
                             "title": "检查组管理",
-                            "linkUrl":"checkgroup.html",
-                            "children":[]
+                            "linkUrl": "checkgroup.html",
+                            "children": []
                         },
                         {
                             "path": "/3-5",
                             "title": "检查项管理",
-                            "linkUrl":"checkitem.html",
-                            "children":[]
+                            "linkUrl": "checkitem.html",
+                            "children": []
                         },
                     ]
                 },
                 {
                     "path": "4",
                     "title": "健康评估",
-                    "icon":"fa-stethoscope",
-                    "children":[
+                    "icon": "fa-stethoscope",
+                    "children": [
                         {
                             "path": "/4-1",
                             "title": "中医体质辨识",
-                            "linkUrl":"all-medical-list.html",
-                            "children":[]
+                            "linkUrl": "all-medical-list.html",
+                            "children": []
                         },
                     ]
                 },
                 {
                     "path": "5",     //菜单项所对应的路由路径
                     "title": "统计分析",     //菜单项名称
-                    "icon":"fa-heartbeat",
-                    "children":[//是否有子菜单，若没有，则为[]
+                    "icon": "fa-heartbeat",
+                    "children": [//是否有子菜单，若没有，则为[]
                         {
                             "path": "/5-1",
                             "title": "会员按月注册人数统计（折线图）",
-                            "linkUrl":"report_member.html",
-                            "children":[]
+                            "linkUrl": "report_member.html",
+                            "children": []
                         },
                         {
                             "path": "/5-2",
                             "title": "套餐预约占比统计（饼图）",
-                            "linkUrl":"report_setmeal.html",
-                            "children":[]
+                            "linkUrl": "report_setmeal.html",
+                            "children": []
                         },
                         {
                             "path": "/5-3",
                             "title": "运营数据统计",
-                            "linkUrl":"report_business.html",
-                            "children":[]
+                            "linkUrl": "report_business.html",
+                            "children": []
                         }
                     ]
                 }
             ]
         },
+        methods: {
+            updatePwd() {
+                this.$prompt('请输入密码,请务必牢记', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    inputType: 'password',
+                    inputPattern: /^[^ ]+$/,
+                    inputErrorMessage: '密码不能不能包含空格'
+                }).then(({value}) => {
+                    axios.post("/user/updatePwd.do?=",{"passWord":value}).then((res=>{
+                        if(res.data.flag==true){
+                            this.$message({
+                                type: 'success',
+                                message: '密码修改成功,下次登陆生效'
+                            });
+                        }else{
+                            this.$message({
+                                type: 'error',
+                                message: '密码修改失败'
+                            });
+                        }
+                    }))
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '取消修改'
+                    });
+                });
+            }
+        }
+        ,
         // 钩子函数
         created() {
             // 使用axios从SpringSecurity中查询当前用户的信息

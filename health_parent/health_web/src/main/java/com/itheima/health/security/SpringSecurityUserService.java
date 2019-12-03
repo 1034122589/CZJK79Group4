@@ -65,17 +65,7 @@ public class SpringSecurityUserService implements UserDetailsService{
             }
         }
 
-        // User封装响应的数据
-        /**
-         * User(String username, String password, Collection<? extends GrantedAuthority> authorities)
-         *   参数一：封装当前登录名
-         *   参数二：封装当前用户从数据库中查询的密码
-         *          springSecurity会使用页面传递的密码password-parameter="password"，和数据库查询的密码user.getPassword()进行比对
-         *          如果比对成功，表示登录成功，执行default-target-url="/index.html"
-         *          如果比对不成功，抛出异常(org.springframework.security.authentication.BadCredentialsException: Bad credentials)，并跳转到authentication-failure-url="/login.html"
-         *   参数三：集合（封装当前登录名具有的角色、权限）
-         */
-        // String password = "{noop}"+user.getPassword();
+
         // 使用BCryptPasswordEncoder加密
         String password = user.getPassword();
         UserDetails userDetails = new User(username,password,list);

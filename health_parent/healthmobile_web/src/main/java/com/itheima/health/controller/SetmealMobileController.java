@@ -1,6 +1,9 @@
 package com.itheima.health.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.itheima.health.constant.MessageConstant;
 import com.itheima.health.entity.Result;
 import com.itheima.health.pojo.Setmeal;
@@ -28,9 +31,11 @@ public class SetmealMobileController {
     // 查询所有的套餐
     @RequestMapping(value = "/getSetmeal")
     public Result getSetmeal(){
-        List<Setmeal> list = setmealService.findAll();
-        if(list!=null && list.size()>0){
-            return new Result(true, MessageConstant.GET_SETMEAL_LIST_SUCCESS,list);
+        String setmealList = setmealService.findAll();
+
+        if(setmealList!=null && setmealList.length()>0){
+            JSONArray s = JSON.parseArray(setmealList);
+            return new Result(true, MessageConstant.GET_SETMEAL_LIST_SUCCESS,s);
         }
         else{
             return new Result(false,MessageConstant.GET_SETMEAL_LIST_FAIL);
@@ -40,9 +45,10 @@ public class SetmealMobileController {
     // 使用套餐id，查询套餐id所对应的套餐信息（详情）
     @RequestMapping(value = "/findById")
     public Result findById(Integer id){
-        Setmeal setmeal = setmealService.findById(id);
+        String setmeal = setmealService.findById(id);
         if(setmeal!=null){
-            return new Result(true, MessageConstant.QUERY_SETMEAL_SUCCESS,setmeal);
+            JSONObject object = JSON.parseObject(setmeal);
+            return new Result(true, MessageConstant.QUERY_SETMEAL_SUCCESS,object);
         }
         else{
             return new Result(false,MessageConstant.QUERY_SETMEAL_FAIL);

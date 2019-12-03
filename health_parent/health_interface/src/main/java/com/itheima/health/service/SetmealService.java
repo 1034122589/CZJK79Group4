@@ -12,9 +12,9 @@ public interface SetmealService {
 
     PageResult findPage(String queryString, Integer currentPage, Integer pageSize);
 
-    List<Setmeal> findAll();
+    String findAll();
 
-    Setmeal findById(Integer id);
+    String findById(Integer id);
 
     List<Map> getSetmealReport();
 }
