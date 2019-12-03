@@ -194,38 +194,7 @@
                 }
             ]
         },
-        methods: {
-            updatePwd() {
-                this.$prompt('请输入密码,请务必牢记', '提示', {
-                    confirmButtonText: '确定',
-                    cancelButtonText: '取消',
-                    inputType: 'password',
-                    inputPattern: /^[^ ]+$/,
-                    inputErrorMessage: '密码不能不能包含空格'
-                }).then(({value}) => {
-                    axios.post("/user/updatePwd.do?=",{"passWord":value}).then((res=>{
-                        if(res.data.flag==true){
-                            this.$message({
-                                type: 'success',
-                                message: '密码修改成功,下次登陆生效'
-                            });
-                        }else{
-                            this.$message({
-                                type: 'error',
-                                message: '密码修改失败'
-                            });
-                        }
-                    }))
 
-                }).catch(() => {
-                    this.$message({
-                        type: 'info',
-                        message: '取消修改'
-                    });
-                });
-            }
-        }
-        ,
         // 钩子函数
         created() {
             // 使用axios从SpringSecurity中查询当前用户的信息
