@@ -12,5 +12,71 @@
     <select id="findUserByUsername" parameterType="string" resultMap="userMap">
         SELECT * FROM t_user WHERE username = #{username}
     </select>
+    <!--更新用户信息-->
+    <update id="edit" parameterType="user">
 
+        update t_user
+        <set>
+            <if test="birthday!= null">
+                birthday = #{birthday},
+            </if>
+            <if test="gender!= null and gender.length>0">
+                gender = #{gender},
+            </if>
+            <if test="username!= null and username.length>0">
+                username = #{username},
+            </if>
+            <if test="password!= null and password.length>0">
+                password = #{password},
+            </if>
+            <if test="remark!= null and remark.length>0">
+                remark = #{remark},
+            </if>
+            <if test="station!= null and station.length>0">
+                station = #{station},
+            </if>
+            <if test="telephone!= null and telephone.length>0">
+                telephone = #{telephone},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--删除中间表-->
+    <delete id="deleteT_user_role">
+        delete  from t_user_role  where user_id = #{id}
+    </delete>
+    <delete id="delect">
+        delete  from t_user  where id = #{id}
+    </delete>
+
+    <!--分页查询-->
+    <select id="findPage" resultType="com.itheima.health.pojo.User">
+        select  * from  t_user where username !='admin'
+        <if test="value!=null and value.length>0">
+            and username like concat('%',#{value},'%')
+        </if>
+    </select>
+    <!--根据id查询-->
+    <select id="findById" resultType="com.itheima.health.pojo.User">
+          SELECT id,birthday,gender,username,remark,station,telephone FROM t_user WHERE id = #{id}
+    </select>
+    <!--根据用户id 查询用户和角色中间表-->
+    <select id="findCheckItemIdsByCheckGroupId" resultType="java.lang.Integer">
+
+           SELECT role_id FROM  t_user_role  WHERE  user_id =#{id}
+
+    </select>
+
+    <!--新增用户-->
+    <insert id="add">
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            select last_insert_id()
+      </selectKey>
+        insert  into  t_user (birthday,gender,username,password,remark,station,telephone)values
+        (#{birthday},#{gender},#{username},#{password},#{remark},#{station},#{telephone})
+    </insert>
+    <!--设置中间表-->
+    <insert id="addCheckGroupAndCheckItem">
+    insert  into   t_user_role (user_id,role_id)  values (#{userid},#{roleid})
+    </insert>
 </mapper>

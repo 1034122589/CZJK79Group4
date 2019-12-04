@@ -12,4 +12,8 @@
     <select id="findRolesByUserId" parameterType="int" resultMap="roleMap">
         SELECT r.* FROM t_role r,t_user_role ur WHERE r.id = ur.role_id AND user_id = #{userId}
     </select>
+    <!--查询角色-->
+    <select id="findAll" resultType="com.itheima.health.pojo.Role">
+        select * from  t_role
+    </select>
 </mapper>
