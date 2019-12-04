@@ -45,6 +45,22 @@ public class ReportController {
     @Reference
     ReportService reportService;
 
+    @Reference
+    MemberBirthdayService memberBirthdayService;
+
+    //获取会员年龄
+    @RequestMapping(value = "/getMemberBirthday")
+    public Result getMemberBirthday() {
+        try {
+            List<Integer> list = memberBirthdayService.getMemberBirthday();
+            return new Result(true,"会员年龄段分布查询成功",list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"会员年龄段分布查询失败");
+        }
+    }
+
+
     // 获取会员数量（折线图）
     @RequestMapping(value = "/getMemberReport")
     public Result getMemberReport(){

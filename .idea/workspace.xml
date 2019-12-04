@@ -2,212 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="105ed89e-a95f-42b2-ad0a-245da76fd258" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/constant/MessageConstant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/constant/RedisMessageConstant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/constant/RedisMobileMessageConstant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/utils/DateUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/utils/MD5Utils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/utils/POIUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/utils/QiniuUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/utils/SMSUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/classes/com/itheima/health/utils/ValidateCodeUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/health_common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/test-classes/com/itheima/test/TestDate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/test-classes/com/itheima/test/TestPassword.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/test-classes/com/itheima/test/TestPoi.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/test-classes/com/itheima/test/TestQiniu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/test-classes/com/itheima/test/TestSMS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_common/target/test-classes/com/itheima/test/TestValidateCode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/src/main/java/com/itheima/health/dao/MenuDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/src/main/resources/com/itheima/health/dao/MenuDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/applicationContext-dao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/CheckGroupDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/CheckGroupDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/CheckItemDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/CheckItemDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/MemberDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/MemberDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/OrderDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/OrderDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/OrderSettingDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/OrderSettingDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/PermissionDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/PermissionDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/RoleDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/RoleDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/SetmealDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/SetmealDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/com/itheima/health/dao/UserDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/classes/sqlMapConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/health_dao-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_dao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/CheckGroupService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/CheckItemService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/MemberService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/OrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/OrderSettingService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/ReportService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/SetmealService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/classes/com/itheima/health/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/health_interface-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/entity/PageResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/entity/QueryPageBean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/entity/Result.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/CheckGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/CheckItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/Member.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/Menu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/OrderSetting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/Permission.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/Role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/Setmeal.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/classes/com/itheima/health/pojo/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/health_pojo-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/applicationContext-redis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/applicationContext-service.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/applicationContext-tx.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/CheckGroupServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/CheckItemServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/MemberServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/OrderServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/OrderSettingServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/ReportServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/SetmealServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/com/itheima/health/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/tomcat/conf/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/tomcat/conf/tomcat-users.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/tomcat/conf/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service/target/tomcat/logs/access_log.2019-12-04" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/controller/CheckGroupController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/controller/CheckItemController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/controller/OrderSettingController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/controller/ReportController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/controller/SetmealController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/com/itheima/health/security/SpringSecurityUserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/spring-redis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/spring-security.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/classes/springmvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/tomcat/conf/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/tomcat/conf/tomcat-users.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/tomcat/conf/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_web/target/tomcat/logs/access_log.2019-12-04" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_jobs_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_jobs_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_jobs_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_jobs_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_service_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_service_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_service_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_service_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_web_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_web_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_web_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/healthmobile_web_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/healthmobile_web_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/healthmobile_web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/healthmobile_web_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_6_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_6_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_3_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_3_3_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_dysmsapi_1_0_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_dysmsapi_1_0_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_miemiedev_mybatis_paginator_1_2_15.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_miemiedev_mybatis_paginator_1_2_15.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_4_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_4_1_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_sgroschupf_zkclient_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_sgroschupf_zkclient_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_03.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_6_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_happy_dns_java_0_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_happy_dns_java_0_1_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_qiniu_java_sdk_7_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_qiniu_java_sdk_7_2_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_3_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_8_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_client_1_18_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_client_1_18_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_18_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_18_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_7_0_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_7_0_Final.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jline_jline_0_9_94.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jline_jline_0_9_94.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_14.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_14.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_14.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_20_0_GA.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_5_Final.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20170516.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20170516.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_2_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_jobs_2_2_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_jobs_2_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_acl_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_acl_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_taglibs_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_taglibs_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jms_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jms_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_common/health_common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/health_common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_dao/health_dao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_dao/health_dao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_dao/src/main/resources/applicationContext-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_dao/src/main/resources/applicationContext-dao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_dao/src/main/resources/com/itheima/health/dao/RoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_dao/src/main/resources/com/itheima/health/dao/RoleDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_interface/health_interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_interface/health_interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_jobs/health_jobs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_jobs/health_jobs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_pojo/health_pojo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_pojo/health_pojo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_service/health_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service/health_service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_service/src/main/resources/applicationContext-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service/src/main/resources/applicationContext-service.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_web/health_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_web/health_web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_web/src/main/java/com/itheima/health/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_web/src/main/java/com/itheima/health/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_web/src/main/resources/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_web/src/main/resources/spring-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_web/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_web/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_web/src/main/webapp/pages/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_web/src/main/webapp/pages/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/healthmobile_web/healthmobile_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/healthmobile_web/healthmobile_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_web/src/main/java/com/itheima/health/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_web/src/main/java/com/itheima/health/controller/ReportController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,6 +13,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -250,6 +52,13 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IdeaProjects\repo\CZJK79Group4\health_parent\health_web\src\main\webapp\pages" />
+      <recent name="F:\IdeaProjects\repo\CZJK79Group4\health_parent\health_service\src\main\java\com\itheima\health\service\impl" />
+      <recent name="F:\IdeaProjects\repo\CZJK79Group4\health_parent\health_interface\src\main\java\com\itheima\health\service" />
+      <recent name="F:\IdeaProjects\repo\CZJK79Group4\health_parent\health_dao\src\main\resources\com\itheima\health\dao" />
+      <recent name="F:\IdeaProjects\repo\CZJK79Group4\health_parent\health_dao\src\main\java\com\itheima\health\dao" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.itheima.health.dao" />
     </key>
@@ -408,7 +217,29 @@
       <workItem from="1575423843809" duration="420000" />
       <workItem from="1575424304584" duration="836000" />
       <workItem from="1575425363841" duration="3569000" />
+      <workItem from="1575437824621" duration="716000" />
+      <workItem from="1575444510300" duration="98000" />
+      <workItem from="1575446063157" duration="134000" />
+      <workItem from="1575446199359" duration="2000" />
+      <workItem from="1575446898005" duration="1111000" />
+      <workItem from="1575448046837" duration="684000" />
+      <workItem from="1575450393779" duration="1579000" />
     </task>
+    <task id="LOCAL-00001" summary="动态菜单三稿">
+      <created>1575438400914</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575438400914</updated>
+    </task>
+    <task id="LOCAL-00002" summary="会员年龄占比饼图  --李西亚">
+      <created>1575448448847</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575448448847</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,6 +257,18 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="动态菜单三稿" />
+    <MESSAGE value="会员年龄占比饼图  --李西亚" />
+    <option name="LAST_COMMIT_MESSAGE" value="会员年龄占比饼图  --李西亚" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="MavenRunConfiguration">
+        <watch expression="menu" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="masterDetails">
     <states>
