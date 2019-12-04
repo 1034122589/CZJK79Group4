@@ -15,11 +15,11 @@
     <body class="hold-transition">
         <div id="app">
             <div class="content-header">
-                <h1>统计分析<small>会员年龄占比</small></h1>
+                <h1>统计分析<small>会员数量占比(按年龄段)</small></h1>
                 <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
                     <el-breadcrumb-item>统计分析</el-breadcrumb-item>
-                    <el-breadcrumb-item>会员年龄占比</el-breadcrumb-item>
+                    <el-breadcrumb-item>会员数量占比(按年龄段)</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
             <div class="app-container">
@@ -43,7 +43,7 @@
         axios.get("/report/getMemberBirthday.do").then((res)=>{
             myChart1.setOption({
                 title: {
-                    text: '会员数量占比',
+                    text: '会员数量占比(按年龄段)',
                     x: 'center'
                 },
                 tooltip: {
@@ -57,7 +57,7 @@
                 },
                 series: [
                     {
-                        name: '会员年龄占比',
+                        name: '会员数量占比(按年龄段)',
                         type: 'pie',
                         radius: '55%',
                         center: ['50%', '60%'],
