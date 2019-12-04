@@ -33,7 +33,7 @@
     </mvc:annotation-driven>
     <!-- 指定应用名称 -->
     <dubbo:application name="health_web" />
-    <!--指定服务注册中心地址106.53.4.230-->
+    <!--指定服务注册中心地址-->
     <dubbo:registry address="zookeeper://106.53.4.230:2181"/>
     <!--批量扫描-->
     <dubbo:annotation package="com.itheima.health" />
