@@ -199,7 +199,7 @@
         created() {
             //初始化菜单
             this.menuList =[];
-            // 使用axios从SpringSecurity中查询当前用户的信息
+            // 使用axios从SpringSecurity中查询当前用户的信息,菜单信息
             axios.get("/user/getUsername.do").then((response)=>{
                 // 返回Result(flag,message,data)
                 if(response.data.flag){
@@ -208,23 +208,9 @@
                         message:response.data.message
                     });
                     // 对username赋值
-                    this.username = response.data.data;
-
-                    //发送请求获取菜单
-                    axios.get("/user/menu.do?userName="+this.username).then((res)=>{
-                        if (res.data.flag){
-                            //展示当前用户菜单
-                            this.menuList = res.data.data;
-                        }else{
-                            this.$message({
-                                type:"error",
-                                message:response.data.message
-                            });
-                        }
-
-                    }).catch((error)=>{
-
-                    });
+                    this.username = response.data.data.username;
+                    //对菜单赋值
+                    this.menuList = response.data.data.menuList;
                 }else{
                     this.$message({
                         type:"error",

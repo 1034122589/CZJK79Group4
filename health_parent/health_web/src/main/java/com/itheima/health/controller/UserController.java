@@ -26,6 +26,7 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.JedisPool;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.image.ImageProducer;
@@ -48,15 +49,25 @@ public class UserController {
     @Reference
     UserService userService;
 
-    // 从SpringSecurity中获取用户信息
+    @Autowired
+    JedisPool jedisPool;
+
+    // 从SpringSecurity中获取用户信息,和用户菜单
     @RequestMapping(value = "/getUsername")
     public Result getUsername() {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            // 使用登录名，查询当前登录名对应用户信息
-            //com.itheima.health.pojo.User user2 = userService.findUserByUsername(user.getUsername());
+            // 使用登录名，获取用户菜单
+            String userName = user.getUsername();
 
-            return new Result(true, MessageConstant.GET_USERNAME_SUCCESS, user.getUsername());
+            List menu = getMenu(userName);
+
+            Map<String,Object> map = new HashMap<>();
+
+            map.put("username",userName);
+            map.put("menuList",menu);
+
+            return new Result(true, MessageConstant.GET_USERNAME_SUCCESS, map);
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false, MessageConstant.GET_USERNAME_FAIL);
@@ -64,8 +75,7 @@ public class UserController {
     }
 
     //获取用户菜单动态展示
-    @RequestMapping("/menu")
-    public Result getMenu(String userName) {
+    private List getMenu(String userName) {
         // 使用登录名，查询当前登录名对应用户信息
         com.itheima.health.pojo.User user2 = userService.findUserByUsername(userName);
         //封装当前用户菜单信息
@@ -81,7 +91,16 @@ public class UserController {
         Set<Role> roles = user2.getRoles();
         LinkedHashSet<Menu> menus = null;
         if (roles == null) {
-            return new Result(false,"当前用户没有分配角色");
+//            //普通用户
+//            Map<String, Object> common = new HashMap<>();
+//            common.put("path", "2");
+//            common.put("title", "会员管理");
+//            common.put("icon", "fa-user-md");
+//            common.put("children", "fa-user-md");
+//
+//            List<Map> commonCh = new ArrayList<>();
+//            menuList.add(work);
+            return null;
         }
         for (Role role : roles) {
             if (role == null) {
@@ -91,7 +110,7 @@ public class UserController {
         }
         //2.2封装菜单信息
         if (menus == null) {
-            return new Result(false,"当前用户没有分配菜单");
+            return null;
         }
         //封装一级菜单
         Map<String, Object> parent = null;
@@ -116,6 +135,6 @@ public class UserController {
                 menuList.add(parent);
             }
         }
-        return new Result(true,"动态展示菜单成功",menuList);
+        return menuList;
     }
 }
