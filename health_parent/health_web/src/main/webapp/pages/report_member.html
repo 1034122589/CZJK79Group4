@@ -1,67 +1,181 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- 页面meta -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>传智健康</title>
-        <meta name="description" content="传智健康">
-        <meta name="keywords" content="传智健康">
-        <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-        <!-- 引入样式 -->
-        <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/echarts.js"></script>
-    </head>
-    <body class="hold-transition">
-        <div id="app">
-            <div class="content-header">
-                <h1>统计分析<small>会员数量</small></h1>
-                <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
-                    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                    <el-breadcrumb-item>统计分析</el-breadcrumb-item>
-                    <el-breadcrumb-item>会员数量</el-breadcrumb-item>
-                </el-breadcrumb>
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>传智健康</title>
+    <meta name="description" content="传智健康">
+    <meta name="keywords" content="传智健康">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/echarts.js"></script>
+
+
+    <link rel="stylesheet" href="../css/page-health-orderInfo.css"/>
+    <link rel="stylesheet" href="../plugins/elementui/index.css"/>
+    <script src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script src="../plugins/healthmobile.js"></script>
+
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../plugins/vue/axios-0.18.0.js"></script>
+    <script src="../plugins/elementui/index.js"></script>
+    <script src="../plugins/datapicker/datePicker.js"></script>
+
+</head>
+<body class="hold-transition">
+<div id="app">
+    <div class="content-header">
+        <h1>统计分析
+            <small>会员数量</small>
+        </h1>
+        <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>统计分析</el-breadcrumb-item>
+            <el-breadcrumb-item>会员数量</el-breadcrumb-item>
+        </el-breadcrumb>
+    </div>
+    <div class="app-container">
+        <div class="box">
+            <div class="date">
+                <label>开始日期:</label>
+                <i class="icon-date" class="picktime"></i>
+                <input v-model="reportDate.beginDate" type="text" class="picktime" readonly>
+
+                <label>结束日期:</label>
+                <i class="icon-date" class="picktime"></i>
+                <input v-model="reportDate.endDate" type="text" class="picktime2" readonly>
+                <input @click="sendDate()" type="submit" value="提交"/>
             </div>
-            <div class="app-container">
-                <div class="box">
-                    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-                    <div id="chart1" style="height:600px;"></div>
-                </div>
-            </div>
+            <br/>
+            <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+            <div id="chart1" style="height:600px;"></div>
         </div>
-    </body>
-    <!-- 引入组件库 -->
-    <script src="../js/vue.js"></script>
-    <script src="../js/axios-0.18.0.js"></script>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart1 = echarts.init(document.getElementById('chart1'));
+    </div>
+</div>
+</body>
+<!-- 引入组件库 -->
+<script src="../js/vue.js"></script>
+<script src="../plugins/elementui/index.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src="../js/axios-0.18.0.js"></script>
+<script>
 
-        // 使用刚指定的配置项和数据显示图表。
-        //myChart.setOption(option);
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            reportDate: {
+                beginDate: {},
+                endDate: {}
+            }
+        },
+        //钩子函数，VUE对象初始化完成后自动执行
+        created() {
+            this.sendDate2();
+        },
+        methods: {
+            sendDate2(){
+                axios.post("/report/getMemberReport.do").then((res)=>{
+                    // 基于准备好的dom，初始化echarts实例
+                    this.reportDate.beginDate = res.data.data.months[0];
+                this.reportDate.endDate = res.data.data.months[res.data.data.months.length-1];
+                var myChart1 = echarts.init(document.getElementById('chart1'));
+                myChart1.setOption(
+                    {
+                        title: {
+                            text: '会员数量'
+                        },
+                        tooltip: {},
+                        legend: {
+                            data:['会员数量']
+                        },
+                        xAxis: {
+                            data: res.data.data.months
+                        },
+                        yAxis: {
+                            type:'value'
+                        },
+                        series: [{
+                            name: '会员数量',
+                            type: 'line',
+                            data: res.data.data.memberCount
+                        }]
+                    })
+            })
+            },
 
-        axios.get("/report/getMemberReport.do").then((res)=>{
-            myChart1.setOption(
-                {
-                    title: {
-                        text: '会员数量'
-                    },
-                    tooltip: {},
-                    legend: {
-                        data:['会员数量']
-                    },
-                    xAxis: {
-                        data: res.data.data.months
-                    },
-                    yAxis: {
-                        type:'value'
-                    },
-                    series: [{
-                        name: '会员数量',
-                        type: 'line',
-                        data: res.data.data.memberCount
-                    }]
-                });
-        });
-    </script>
+            sendDate() {
+                //alert(this.reportDate.beginDate4String);
+                axios.post("/report/getMemberReportBySelectDate.do", this.reportDate).then((res) => {
+                    var myChart2 = echarts.init(document.getElementById('chart1'));
+                //alert(res.data.flag);
+                if (res.data.flag) {
+
+                    myChart2.setOption(
+                        {
+                            title: {
+                                text: '会员数量'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['会员数量']
+                            },
+                            xAxis: {
+                                data: res.data.data.months
+                            },
+                            yAxis: {
+                                type: 'value'
+                            },
+                            series: [{
+                                name: '会员数量',
+                                type: 'line',
+                                data: res.data.data.memberCount
+                            }]
+                        });
+                }else{
+
+                    vue.$message({
+                        type:"error",
+                        message:res.data.message
+                    })
+                }
+                return false;
+            });
+
+                // return false;
+            }
+        }
+    })
+</script>
+<script>
+    //日期控件
+    var calendar = new datePicker();
+    calendar.init({
+        'trigger': '.picktime', /*按钮选择器，用于触发弹出插件*/
+        'type': 'ym', /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'onSubmit': function () { /*确认时触发事件*/
+            //var theSelectData = calendar.value;
+        },
+        'onClose': function () { /*取消时触发事件*/
+        }
+    });
+    var calendar = new datePicker();
+    calendar.init({
+        'trigger': '.picktime2', /*按钮选择器，用于触发弹出插件*/
+        'type': 'ym', /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+        'onSubmit': function () { /*确认时触发事件*/
+            var theSelectData = calendar.value;
+            if (theSelectData > new Date().toLocaleString()) {
+                //var d = new Date();
+                //theSelectData = d.toLocaleString();
+            }
+            //alert(theSelectData);
+        },
+        'onClose': function () { /*取消时触发事件*/
+        }
+    });
+
+
+</script>
 </html>

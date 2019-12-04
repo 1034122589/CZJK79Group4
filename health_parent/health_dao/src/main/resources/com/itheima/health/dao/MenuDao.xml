@@ -7,4 +7,9 @@
     <select id="findMenusByRoleId" parameterType="int" resultType="menu">
         select m.* from t_role r,t_menu m,t_role_menu rm where r.id = #{id} and r.id = rm.role_id and m.id = rm.menu_id
     </select>
+
+    <!--查询所有-->
+    <select id="findAll" resultType="menu">
+        SELECT * from t_menu
+    </select>
 </mapper>

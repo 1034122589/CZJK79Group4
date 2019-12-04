@@ -65,4 +65,14 @@ public class MessageConstant {
     public static final String GET_BUSINESS_REPORT_FAIL = "获取运营统计数据失败";
     public static final String GET_SETMEAL_LIST_SUCCESS = "查询套餐列表数据成功";
     public static final String GET_SETMEAL_LIST_FAIL = "查询套餐列表数据失败";
+
+    public static final String INPUT_DATE_ERROR = "日期输入有误,请重新输入!";
+    public static final String ADD_ROLE_SUCCESS = "角色新增成功!";
+    public static final String ADD_ROLE_FAIL = "角色新增失败!";
+    public static final String QUERY_FAIL = "查询失败!";
+    public static final String QUERY_SUCCESS = "查询成功!";
+    public static final String EDIT_SUCCESS = "编辑成功!";
+    public static final String EDIT_FAIL = "编辑失败!";
+    public static final String DELETE_FAIL = "删除失败!";
+    public static final String DELETE_SUCCESS = "删除成功!";
 }

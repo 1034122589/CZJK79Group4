@@ -13,4 +13,84 @@
     <select id="findRolesByUserId" parameterType="int" resultMap="roleMap">
         SELECT r.* FROM t_role r,t_user_role ur WHERE r.id = ur.role_id AND user_id = #{userId}
     </select>
+
+    <!--新增role-->
+    <insert id="add" parameterType="role">
+        <selectKey resultType="int" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_role(name,keyword,description) values (#{name},#{keyword},#{description})
+    </insert>
+
+    <!--设置role 和 permission关联关系-->
+    <insert id="setRoleAndPermission" parameterType="map">
+        insert into t_role_permission(role_id,permission_id) value
+        (#{role_id},#{permission_id})
+    </insert>
+
+    <!--设置role 和 menu的关联关系-->
+    <insert id="setRoleAndMenu" parameterType="map">
+        insert into t_role_menu(role_id,menu_id) values
+        (#{role_id},#{menu_id})
+    </insert>
+
+    <!--分页查询 角色管理-->
+    <select id="findPage" resultType="role" parameterType="string">
+        select * from t_role
+        <if test="value != null and value.length > 0">
+            where name = #{value} or keyword = #{value}
+        </if>
+    </select>
+
+    <!--根据id查询role 实现数据回显-->
+    <select id="findById" parameterType="int" resultType="role">
+        select * from t_role where id = #{id}
+    </select>
+
+    <!--根据角色id 查询关联权限id用于数据回显-->
+    <select id="findPermissionIdsByRoleId" resultType="int" parameterType="int">
+        select permission_id from t_role_permission where role_id = #{id}
+    </select>
+
+    <!--根据角色id 查询关联菜单id用于数据回显-->
+    <select id="findMenuIdsByRoleId" resultType="int" parameterType="int">
+        select menu_id from t_role_menu where role_id = #{id}
+    </select>
+
+    <!--编辑更改角色-->
+    <update id="edit" parameterType="role">
+        update t_role
+        <set>
+            <if test="name != null and name.length >0">
+                name = #{name},
+            </if>
+            <if test="keyword != null and keyword.length > 0">
+                keyword = #{keyword},
+            </if>
+            <if test="description != null and description.length > 0">
+                description = #{description},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--删除与菜单关联关系-->
+    <delete id="deleteMenuIdsByRoleId" parameterType="int" >
+        delete from t_role_menu where role_id = #{id}
+    </delete>
+
+    <!--删除与权限关联关系-->
+    <delete id="deletePermissionIdsByRoleId" parameterType="int" >
+        delete from t_role_permission where role_id = #{id}
+    </delete>
+
+    <!--根据id删除role-->
+    <delete id="delete" parameterType="int">
+        delete from t_role where id = #{id}
+    </delete>
+
+    <!--查询所有角色 实现数据回显-->
+    <select id="findAll" resultType="role">
+        select * from t_role
+    </select>
 </mapper>

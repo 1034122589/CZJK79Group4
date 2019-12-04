@@ -3,12 +3,14 @@ package com.itheima.health.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.itheima.health.constant.MessageConstant;
 import com.itheima.health.entity.Result;
+import com.itheima.health.pojo.SelectDate;
 import com.itheima.health.service.MemberService;
 import com.itheima.health.service.ReportService;
 import com.itheima.health.service.SetmealService;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,6 +68,62 @@ public class ReportController {
             return new Result(false, MessageConstant.GET_MEMBER_NUMBER_REPORT_FAIL);
         }
     }
+
+    /**
+     * 获取指定时间内会员数量增长图（折线图）
+     *
+     * @param selectDate
+     * @return
+     */
+    @RequestMapping(value = "/getMemberReportBySelectDate")
+    public Result getMemberReportBySelectDate(@RequestBody SelectDate selectDate) throws Exception {
+        try {
+            List<String> months = new ArrayList<>();
+
+            String[] beginDate = selectDate.getBeginDate().split("-");
+            String[] endDate = selectDate.getEndDate().split("-");
+            int sumMouth;
+            int endYear = Integer.parseInt(endDate[0]);
+            int endMouth = Integer.parseInt(endDate[1]);
+            int beginYear = Integer.parseInt(beginDate[0]);
+            int beginMouth = Integer.parseInt(beginDate[1]);
+
+            //如果输入结束日期大于现在日期  赋值:现在日期=结束日期
+            Calendar calendar = Calendar.getInstance();
+            Date date = new Date();
+            String stringDate = new SimpleDateFormat("yyyy-MM").format(date);
+            String[] nowDate = stringDate.split("-");
+            if(endYear>Integer.parseInt(nowDate[0]) || (endYear == Integer.parseInt(nowDate[0]) && endMouth>=Integer.parseInt(nowDate[1]))){
+                endYear = Integer.parseInt(nowDate[0]);
+                endMouth = Integer.parseInt(nowDate[1]);
+            }
+
+            if (endYear > beginYear || (endYear == beginYear && endMouth > beginMouth)) {
+                sumMouth = (endYear - beginYear) * 12 + endMouth - beginMouth+1;
+                for (int i = 0; i < sumMouth; i++) {
+                    if (beginMouth > 12) {
+                        beginYear = beginYear + 1;
+                        beginMouth=1;
+                    }
+                    String month = Integer.toString(beginYear)+"-"+Integer.toString(beginMouth);
+                    months.add(month);
+                    beginMouth = beginMouth + 1;
+                }
+                // 使用年月查询对应年月的会员注册情况
+                List<Integer> memberCount = memberService.findMemberCountByRegTime(months);
+                Map map = new HashMap();
+                map.put("months", months); // List<String> --:[“2018-12”,”2019-01”,”2019-02”,...”2019-11”]
+                map.put("memberCount", memberCount);  // List<Integer>  --:[5,20,31,...40]
+                return new Result(true, MessageConstant.GET_MEMBER_NUMBER_REPORT_SUCCESS, map);
+            }else{
+                return new Result(false,MessageConstant.INPUT_DATE_ERROR);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return new Result(false, MessageConstant.GET_MEMBER_NUMBER_REPORT_FAIL);
+        }
+    }
+
 
 
     // 套餐预约占比（饼图）
