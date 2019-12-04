@@ -3,8 +3,11 @@ package com.itheima.health.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.itheima.health.constant.MessageConstant;
 import com.itheima.health.entity.Result;
+import com.itheima.health.pojo.Menu;
+import com.itheima.health.pojo.Role;
 import com.itheima.health.service.UserService;
 import jdk.nashorn.internal.ir.ReturnNode;
+import org.apache.jute.compiler.JString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
@@ -25,8 +28,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.Set;
+import java.awt.image.ImageProducer;
+import java.util.*;
 
 /**
  * @ClassName CheckItemController
@@ -39,7 +42,7 @@ import java.util.Set;
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
-     @Autowired
+    @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
     @Reference
@@ -47,18 +50,72 @@ public class UserController {
 
     // 从SpringSecurity中获取用户信息
     @RequestMapping(value = "/getUsername")
-    public Result getUsername(){
+    public Result getUsername() {
         try {
-            User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             // 使用登录名，查询当前登录名对应用户信息
             //com.itheima.health.pojo.User user2 = userService.findUserByUsername(user.getUsername());
 
-            return new Result(true, MessageConstant.GET_USERNAME_SUCCESS,user.getUsername());
+            return new Result(true, MessageConstant.GET_USERNAME_SUCCESS, user.getUsername());
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false, MessageConstant.GET_USERNAME_FAIL);
         }
     }
 
-
+    //获取用户菜单动态展示
+    @RequestMapping("/menu")
+    public Result getMenu(String userName) {
+        // 使用登录名，查询当前登录名对应用户信息
+        com.itheima.health.pojo.User user2 = userService.findUserByUsername(userName);
+        //封装当前用户菜单信息
+        List<Map<String, Object>> menuList = new ArrayList<>();
+        //1.封装工作台(固定)
+        Map<String, Object> work = new HashMap<>();
+        work.put("path", "1");
+        work.put("title", "工作台");
+        work.put("icon", "fa-dashboard");
+        menuList.add(work);
+        //2.封装当前用户动态菜单
+        //2.1获取当前用户所有菜单信息
+        Set<Role> roles = user2.getRoles();
+        LinkedHashSet<Menu> menus = null;
+        if (roles == null) {
+            return new Result(false,"当前用户没有分配角色");
+        }
+        for (Role role : roles) {
+            if (role == null) {
+                return null;
+            }
+            menus = role.getMenus();
+        }
+        //2.2封装菜单信息
+        if (menus == null) {
+            return new Result(false,"当前用户没有分配菜单");
+        }
+        //封装一级菜单
+        Map<String, Object> parent = null;
+        for (Menu menu : menus) {
+            if (menu.getParentMenuId() == null) {
+                parent = new HashMap<>();
+                parent.put("path", menu.getPath());
+                parent.put("title", menu.getName());
+                parent.put("icon", menu.getIcon());
+                //封装二级菜单
+                List<Map<String, Object>> children = new ArrayList<>();
+                for (Menu menu1 : menus) {
+                    if (menu1.getParentMenuId() == menu.getId()) {
+                        Map<String, Object> childrenMap = new HashMap<>();
+                        childrenMap.put("path", menu1.getPath());
+                        childrenMap.put("title", menu1.getName());
+                        childrenMap.put("linkUrl", menu1.getLinkUrl());
+                        children.add(childrenMap);
+                    }
+                }
+                parent.put("children",children);
+                menuList.add(parent);
+            }
+        }
+        return new Result(true,"动态展示菜单成功",menuList);
+    }
 }

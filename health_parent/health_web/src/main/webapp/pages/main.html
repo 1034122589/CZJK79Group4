@@ -41,7 +41,7 @@
                             </div>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item divided>
-                                    <span style="display:block;" @click="updatePwd" >修改密码</span>
+<!--                                    <span style="display:block;" @click="updatePwd" >修改密码</span>-->
                                 </el-dropdown-item>
                                 <el-dropdown-item divided>
                                         <span style="display:block;">
@@ -197,6 +197,8 @@
 
         // 钩子函数
         created() {
+            //初始化菜单
+            this.menuList =[];
             // 使用axios从SpringSecurity中查询当前用户的信息
             axios.get("/user/getUsername.do").then((response)=>{
                 // 返回Result(flag,message,data)
@@ -204,14 +206,30 @@
                     this.$message({
                         type:"success",
                         message:response.data.message
-                    })
+                    });
                     // 对username赋值
                     this.username = response.data.data;
+
+                    //发送请求获取菜单
+                    axios.get("/user/menu.do?userName="+this.username).then((res)=>{
+                        if (res.data.flag){
+                            //展示当前用户菜单
+                            this.menuList = res.data.data;
+                        }else{
+                            this.$message({
+                                type:"error",
+                                message:response.data.message
+                            });
+                        }
+
+                    }).catch((error)=>{
+
+                    });
                 }else{
                     this.$message({
                         type:"error",
                         message:response.data.message
-                    })
+                    });
                     this.username = "未知用户";
                 }
             }).catch((error)=>{

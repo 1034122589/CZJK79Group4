@@ -33,7 +33,7 @@
     </mvc:annotation-driven>
     <!-- 指定应用名称 -->
     <dubbo:application name="health_web" />
-    <!--指定服务注册中心地址-->
+    <!--指定服务注册中心地址106.53.4.230-->
     <dubbo:registry address="zookeeper://106.53.4.230:2181"/>
     <!--批量扫描-->
     <dubbo:annotation package="com.itheima.health" />
@@ -42,7 +42,7 @@
         check=false 不检查服务提供方，开发阶段建议设置为false
         check=true 启动时检查服务提供方，如果服务提供方没有启动则报错
     -->
-    <dubbo:consumer timeout="600000" check="false"/>
+    <dubbo:consumer timeout="1200000" check="false"/>
     <!--文件上传组件-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

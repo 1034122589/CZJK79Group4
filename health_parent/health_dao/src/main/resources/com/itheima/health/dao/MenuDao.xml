@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.health.dao.MenuDao">
+
+    <!--使用角色id，查询角色对应权限集合-->
+    <select id="findMenusByRoleId" parameterType="int" resultType="menu">
+        select m.* from t_role r,t_menu m,t_role_menu rm where r.id = #{id} and r.id = rm.role_id and m.id = rm.menu_id
+    </select>
+</mapper>
