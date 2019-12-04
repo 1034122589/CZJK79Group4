@@ -66,6 +66,10 @@
            SELECT role_id FROM  t_user_role  WHERE  user_id =#{id}
 
     </select>
+    <!--根据用户名查询-->
+    <select id="findUserName" resultType="com.itheima.health.pojo.User">
+        select *from  t_user where  username = #{username}
+    </select>
 
     <!--新增用户-->
     <insert id="add">

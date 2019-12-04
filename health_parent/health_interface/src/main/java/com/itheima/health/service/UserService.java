@@ -24,4 +24,6 @@ public interface UserService {
     void edit(User user, Integer[] roleids);
 
     void delect(Integer id);
+
+    User findUserName(String username);
 }

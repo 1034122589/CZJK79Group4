@@ -152,4 +152,17 @@ public class UserController {
         }
     }
 
+    // 使用用户id，查询用户个=和角色的中间表，获取角色的集合，返回List<Integer>
+    @RequestMapping(value = "/findname")
+    public Result findUserName(String username){
+        // 使用检查组的id，查询检查项的ID集合
+        com.itheima.health.pojo.User user = userService.findUserName(username);
+        if (user==null){
+            return new Result(true, "用户名可用使用");
+        }else {
+            return new Result(false, "用户已存在");
+        }
+
+    }
+
 }

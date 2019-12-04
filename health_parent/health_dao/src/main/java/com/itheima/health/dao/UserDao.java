@@ -28,4 +28,6 @@ public interface UserDao {
     void addCheckGroupAndCheckItem(Map<String, Object> params);
 
     void delect(Integer id);
+
+    User findUserName(String username);
 }

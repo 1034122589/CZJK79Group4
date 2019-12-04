@@ -111,6 +111,13 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    //查询名字
+    @Override
+    public User findUserName(String username) {
+     User  user=   userDao.findUserName(username);
+        return user;
+    }
+
     //设置中间表
     private void setCheckGroupAndCheckItem(Integer userid, Integer[] roleids) {
         if(roleids!=null && roleids.length>0){
@@ -125,6 +132,7 @@ public class UserServiceImpl implements UserService {
             }
         }
     }
+
 
 
 }

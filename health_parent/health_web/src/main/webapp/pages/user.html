@@ -99,8 +99,8 @@
                                         <el-form label-position="right" label-width="100px">
                                             <el-row>
                                                 <el-col :span="12">
-                                                    <el-form-item label="用户名" prop="name">
-                                                        <el-input v-model="formData.username"/>
+                                                    <el-form-item label="用户名" prop="name" >
+                                                        <el-input @blur="handleUsername(formData.username)" v-model="formData.username"/>
                                                     </el-form-item>
                                                 </el-col>
                                                 <el-col :span="12">
@@ -467,6 +467,31 @@
                     this.pagination.currentPage = currentPage;
                     // 查询
                     this.findPage();
+                },
+                //查询用户名
+                handleUsername(row){
+                if (row!=null){
+                    axios.post("/user/findname.do?username="+row).then((respon)=>{
+
+                        if (respon.data.flag){
+                            this.$message({
+                                type:"success",
+                                message:respon.data.message
+                            })
+                        }else {
+                            this.$message({
+                                type:"error",
+                                message:respon.data.message
+                            })
+                        }
+                    })
+                }else {
+                    this.$message({
+                        type:"error",
+                        message:"用户名不能为空"
+                    })
+
+                }
                 },
                 // 删除
                 handleDelete(row) {
