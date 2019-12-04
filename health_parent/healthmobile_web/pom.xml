@@ -30,6 +30,7 @@
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
                 <configuration>
                     <!-- 指定端口，给客户端使用的端口，尽量用80端口，因为80端口是默认端口 -->
                     <port>80</port>
