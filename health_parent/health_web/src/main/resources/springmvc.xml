@@ -43,7 +43,7 @@
         check=false 不检查服务提供方，开发阶段建议设置为false
         check=true 启动时检查服务提供方，如果服务提供方没有启动则报错
     -->
-    <dubbo:consumer timeout="600000" check="false"/>
+    <dubbo:consumer timeout="1200000" check="false"/>
     <!--文件上传组件-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
